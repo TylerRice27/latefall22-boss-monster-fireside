@@ -1,0 +1,10 @@
+.background-img {
+    background-image: url('/imgs/mvc-stage7.gif');
+    background-position: center;
+    background-size: cover;
+}
+
+.bad-img {
+    width: 500px;
+    height: 500px;
+}
