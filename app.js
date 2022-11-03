@@ -101,9 +101,12 @@ setInterval(bossAttack, 2000)
 // I put my companions up to by my hero
 
 function buy(name) {
-    let companion = companions[name]
-    if (hero.credit >= companion.cost) {
-        hero.credit -= companion.cost
+    let companion = companions.find(f => f.name == name)
+    console.log(companion);
+    if (hero.credit < companion.cost) {
+        window.alert("Go farm some more credits")
+        return
     }
+    hero.credit -= companion.cost
     update()
 }
