@@ -1,10 +1,16 @@
 const hero =
 {
     name: 'Spider-man',
-    type: 'Rouge',
     damage: 10,
     health: 100,
     credit: 0,
+}
+
+const boss = {
+    health: 100,
+    maxHealth: 100,
+    damage: 5,
+    level: 1
 }
 
 const companions = [
@@ -41,12 +47,6 @@ const companions = [
     }
 ]
 
-const boss = {
-    health: 100,
-    maxHealth: 100,
-    damage: 5,
-    level: 1
-}
 
 function update() {
     document.getElementById('boss-hp').innerText = boss.health
@@ -89,7 +89,7 @@ function bossLevelUp() {
 
 function bossAttack() {
     boss.damage = boss.damage * boss.level
-    hero.health -= boss.level
+    hero.health -= boss.damage
     if (hero.health <= 0) {
         hero.health = 0
 
@@ -107,12 +107,16 @@ setInterval(bossAttack, 2000)
 
 function drawCompanions(companion) {
 
-    let template = ` <div class="d-flex flex-column align-items-center">
-                <h3 class="text-light text-center text-shadow">Level: ${companion.power} | HP: ${companion.health}</span></h3>
+    let template =
+        /*html*/
+        ` 
+        <div class="d-flex flex-column align-items-center">
+        <div class="bg-dark rounded p-1">
+                <h3 class="text-light  m-0 pt-2 text-center text-shadow">Level: ${companion.power} | HP: ${companion.health}</span></h3>
+                </div>
                 <img class="comp-img " src="${companion.img}" alt="">
 
             </div>`
-
     document.getElementById(`${companion.name}`).innerHTML = template
 
 }
