@@ -1,15 +1,27 @@
 .background-img {
-    background-image: url('/imgs/mvc-stage7.gif');
-    background-position: center;
-    background-size: cover;
+  background-image: url('/imgs/mvc-stage7.gif');
+  background-position: center;
+  background-size: cover;
 }
 
 .bad-img {
-    width: 500px;
-    height: 500px;
+  width: 400px;
+  height: 400px;
+  border-radius: 5%;
 }
 
 .hero-img {
-    width: 300px;
-    height: 300px;
+  width: 400px;
+  height: 400px;
+  border-radius: 5%;
+}
+
+.comp-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+}
+
+body {
+  font-family: "Ruslan Display", cursive;
 }
