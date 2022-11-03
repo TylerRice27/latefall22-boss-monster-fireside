@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="background-img">
+<body class="background-img d-flex flex-column justify-content-between">
   <header class="container-fluid py-3 bg-dark text-light">
     <div class="row d-flex text-center">
       <div class="col-md-4">
@@ -24,8 +24,8 @@
         </button>
       </div>
       <div class="col-md-4">
-        <button onclick="buy('Symbiote Spider-man')" class="btn btn-primary">
-          Symbiote Spider-man 200 CR
+        <button onclick="buy('Iron-man')" class="btn btn-primary">
+          Iron-man 200 CR
         </button>
       </div>
       <div class="col-md-4">
@@ -40,23 +40,31 @@
 
 
 
+
+
+
+
   <main class="container-fluid">
     <div id="heroes" class="row m-2 d-flex justify-content-center">
 
       <div id="Wolverine" class="col-md-4"></div>
-      <div id="Symbiote Spider-man" class="col-md-4"></div>
+      <div id="Iron-man" class="col-md-4"></div>
       <div id="Deadpool" class="col-md-4"></div>
 
     </div>
-    <div class="row">
-      <div class="col-md-6 d-flex flex-column align-items-center">
+    <div class="row align-items-center">
+      <div class="col-md-5 d-flex flex-column align-items-center">
         <h3 class="text-light text-center text-shadow">HP: <span id="hero-hp">100</span></h3>
-        <img class="hero-img" src="https://media.tenor.com/Rb-NerviqQEAAAAC/spiderman-the-animated-series.gif" alt="">
+        <img class="hero-img" src="https://media4.giphy.com/media/KhAH5dY2BA1PO/giphy.gif?cid=ecf05e474hopnqddrqrf9h3d3r71vpyxxseu2ny2hi45nnej&rid=giphy.gif&ct=s" alt="">
       </div>
-      <div class="col-md-6  d-flex flex-column align-items-center" id="boss">
-        <h3 class="text-light shadow text-center text-shadow">Level: <span id="boss-lvl">1</span> | HP: <span id="boss-hp">100</span>
+      <div class="col-md-2 d-flex flex-column align-items-center vs special"> VS</div>
+      <div class="col-md-5  d-flex flex-column align-items-center" id="boss">
+        <h3 class="text-light text-center">Level: <span id="boss-lvl">1</span> | HP: <span id="boss-hp">100</span>
         </h3>
-        <img onclick="attackBoss()" class="bad-img" src="imgs/Wesker 00.png" alt="">
+        <div onclick="attackBoss()">
+          <img src="https://media0.giphy.com/media/1BDQgv6RNbC9y/giphy.gif" class="bad-img">
+        </div>
+        <!-- <img onclick="attackBoss()" class="bad-img" src="imgs/Wesker 00.png" alt=""> -->
       </div>
     </div>
   </main>

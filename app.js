@@ -17,17 +17,17 @@ const companions = [
     health: 150,
     cost: 100,
     squadUp: false,
-    img: 'imgs/Wolverine 00.png'
+    img: 'https://media2.giphy.com/media/HTy0GcFDvOVi0/giphy.gif'
   },
 
   {
-    name: 'Symbiote Spider-man',
+    name: 'Iron-man',
     type: 'Evil Rouge',
     value: 15,
     health: 100,
     cost: 200,
     squadUp: false,
-    img: "imgs/Spider-Man 01.png"
+    img: "https://media1.giphy.com/media/7EiixpldfkXni/giphy.gif?cid=ecf05e470ymdtyll84dy0v9d66xiq0et3sqlzux9sf9ifv9c&rid=giphy.gif&ct=s"
 
   },
   {
@@ -37,7 +37,7 @@ const companions = [
     health: 100,
     cost: 500,
     squadUp: false,
-    img: "imgs/Deadpool 00.png"
+    img: "https://media3.giphy.com/media/TAbghspb8GP4I/200w.webp?cid=ecf05e47iusv43aubq8g15qe54v33cvtt327gqjf7nbaaouo&rid=200w.webp&ct=s"
 
   }
 ]
