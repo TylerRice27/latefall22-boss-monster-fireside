@@ -20,15 +20,25 @@
         <!-- place navbar here -->
     </header>
     <main class="container-fluid">
-        <div id="heroes" class="row"></div>
+        <div id="heroes" class="row m-2 d-flex justify-content-center">
+            <h3 class="text-light text-center text-shadow">HP: <span id="hero-hp">100</span></h3>
+            <img class="hero-img " src="imgs/Spider-Man 00.png" alt="">
+        </div>
         <div class="row">
             <div class="col-md-12 text-center" id="boss">
+                <h3 class="text-light shadow text-center text-shadow">Level: <span id="boss-lvl">1</span> | HP: <span
+                        id="boss-hp">100</span>
+                </h3>
                 <img onclick="attackBoss()" class="bad-img" src="imgs/Wesker 00.png" alt="">
             </div>
         </div>
     </main>
-    <footer>
-        <!-- place footer here -->
+    <footer class="container-fluid bg-dark text-light">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-primary m-3">Credits: <span id="credits">0</span></h3>
+            </div>
+        </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

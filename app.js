@@ -5,7 +5,7 @@ const hero =
     damage: 10,
     health: 100,
     credit: 0,
-    img: 'Spider-Man/Spider-Man 00.png'
+    // img: 'Spider-Man/Spider-Man 00.png'
 }
 
 const companion =
@@ -18,6 +18,13 @@ const companion =
 }
 
 function update() {
+    document.getElementById('boss-hp').innerText = boss.health
+    document.getElementById('hero-hp').innerText = hero.health
+    document.getElementById('boss-lvl').innerText = boss.level
+    document.getElementById('credits').innerText = hero.credit
+
+
+
 }
 
 const boss = {
@@ -29,7 +36,8 @@ const boss = {
 
 function attackBoss() {
     if (hero.health <= 0) {
-        return window.alert("You dead bro")
+        window.alert("You dead bro")
+        return
     }
     // NOTE This doesn't work because the = sign
     // is assign the left hand thing to the right hand thing
@@ -37,8 +45,8 @@ function attackBoss() {
     boss.health -= hero.damage
     if (boss.health < 0) {
         bossLevelUp()
-        update()
     }
+    update()
 
 }
 
@@ -56,6 +64,9 @@ function bossAttack() {
         hero.health = 0
 
     }
-
+    update()
 }
+
+
+setInterval(bossAttack, 2000)
 
