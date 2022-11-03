@@ -31,7 +31,7 @@ const companions = [
     },
     {
         name: 'Deadpool',
-        type: 'dmg',
+        type: 'heal',
         value: 10,
         health: 100,
         cost: 500,
@@ -105,7 +105,7 @@ setInterval(bossAttack, 2000)
 function drawCompanions(companion) {
 
     let template = ` <div class="d-flex flex-column align-items-center">
-                <h3 class="text-light text-center text-shadow">HP:${companion.health}</span></h3>
+                <h3 class="text-light text-center text-shadow">Level: ${companion.power} | HP: ${companion.health}</span></h3>
                 <img class="comp-img " src="${companion.img}" alt="">
 
             </div>`
@@ -131,8 +131,8 @@ function buy(name) {
     update()
 }
 
-function damageBoss(val) {
-    boss.health -= val
+function damageBoss(damage) {
+    boss.health -= damage
     if (boss.health < 0) {
         bossLevelUp()
     }
@@ -141,6 +141,9 @@ function damageBoss(val) {
 
 function healHero(val) {
     hero.health += val
+    if (hero.health >= 100) {
+        hero.health = 100
+    }
     update()
 }
 
@@ -153,11 +156,11 @@ function companionsActions() {
             return
         }
         if (c.type == "dmg") {
-            let val = c.power * c.value
-            damageBoss(val)
+            let damage = c.power * c.value
+            damageBoss(damage)
         } else {
-            let val = c.power * c.value
-            healHero(val)
+            let heal = c.power * c.value
+            healHero(heal)
         }
     }
 
