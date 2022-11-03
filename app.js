@@ -121,6 +121,8 @@ function drawCompanions(companion) {
     document.getElementById(`${companion.name}`).innerHTML = template
 
 }
+// NOTE make this function after putting the button
+// on the page
 
 function buy(name) {
     let companion = companions.find(f => f.name == name)
