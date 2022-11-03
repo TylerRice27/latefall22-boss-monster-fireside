@@ -24,7 +24,7 @@ const companions = [
         power: 0,
         img: 'https://media2.giphy.com/media/HTy0GcFDvOVi0/giphy.gif'
     },
-
+    // NOTE do this heros after you have created one hero 
     {
         name: 'Iron-man',
         type: 'dmg',
@@ -93,6 +93,7 @@ function bossAttack() {
     hero.health -= boss.damage
     if (hero.health <= 0) {
         hero.health = 0
+        // location.reload()
 
     }
     update()
