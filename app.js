@@ -144,20 +144,22 @@ function healHero(val) {
 function companionsActions() {
     companions.forEach(c => {
 
-        // console.log(c);
+        console.log(c);
         if (c.health <= 0) {
             c.health = 0
             return
         }
         if (c.type == "dmg") {
-            c.value = c.value * c.power
-            damageBoss(c.value)
+            let val = c.power * c.value
+            damageBoss(val)
         } else {
-            healHero(c.value)
+            let val = c.power * c.value
+            healHero(val)
         }
     }
 
     )
+    update()
 }
 
 
