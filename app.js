@@ -8,14 +8,37 @@ const hero =
     // img: 'Spider-Man/Spider-Man 00.png'
 }
 
-const companion =
-{
-    name: 'Wolverine',
-    type: 'Tank',
-    damage: 5,
-    health: 100,
-    img: 'Wolverine/Wolverine 01.png'
-}
+const companions = [
+
+    {
+        name: 'Wolverine',
+        type: 'Tank',
+        value: 5,
+        health: 150,
+        cost: 100,
+        img: 'Wolverine/Wolverine 01.png'
+    },
+
+    {
+        name: 'Symbiote Spider-man',
+        type: 'Evil Rouge',
+        value: 15,
+        health: 100,
+        cost: 200,
+        img: "img/Spider-Man 01.png"
+
+    },
+    {
+        name: 'Deadpool',
+        type: 'Support',
+        value: 10,
+        health: 100,
+        cost: 500,
+        img: "img/Deadpool 00.png"
+
+    }
+]
+
 
 function update() {
     document.getElementById('boss-hp').innerText = boss.health
@@ -72,3 +95,15 @@ function bossAttack() {
 
 setInterval(bossAttack, 2000)
 
+
+// NOTE this is where the function for the companions
+// Start that is need for the lecture
+// I put my companions up to by my hero
+
+function buy(name) {
+    let companion = companions[name]
+    if (hero.credit >= companion.cost) {
+        hero.credit -= companion.cost
+    }
+    update()
+}

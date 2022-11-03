@@ -16,13 +16,39 @@
 </head>
 
 <body class="background-img">
-    <header>
-        <!-- place navbar here -->
+    <header class="container-fluid py-3 bg-dark text-light">
+        <div class="row d-flex text-center">
+            <div class="col-md-4">
+                <button class="btn btn-warning">
+                    Wolverine
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary">
+                    Symbiote Spider-man
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-danger">
+                    Deadpool
+                </button>
+            </div>
+        </div>
     </header>
     <main class="container-fluid">
         <div id="heroes" class="row m-2 d-flex justify-content-center">
-            <h3 class="text-light text-center text-shadow">HP: <span id="hero-hp">100</span></h3>
-            <img class="hero-img " src="imgs/Spider-Man 00.png" alt="">
+            <div id="wolverine"></div>
+            <!-- <div class="col-md-4">
+                <h3 class="text-light text-center text-shadow">HP: <span id="hero-hp">100</span></h3>
+                <img class="hero-img " src="imgs/Spider-Man 00.png" alt="">
+
+            </div> -->
+            <div class="col-md-4">
+                <h3 class="text-light text-center text-shadow">HP: <span id="hero-hp">100</span></h3>
+                <img class="hero-img " src="imgs/Spider-Man 00.png" alt="">
+
+            </div>
+
         </div>
         <div class="row">
             <div class="col-md-12 text-center" id="boss">
@@ -33,7 +59,7 @@
             </div>
         </div>
     </main>
-    <footer class="container-fluid bg-dark text-light">
+    <footer class="container-fluid mt-2 bg-dark text-light">
         <div class="row">
             <div class="col">
                 <h3 class="text-primary m-3">Credits: <span id="credits">0</span></h3>
