@@ -43,6 +43,7 @@ function attackBoss() {
     // is assign the left hand thing to the right hand thing
     // hero.damage -= boss.health
     boss.health -= hero.damage
+    hero.credit += boss.level
     if (boss.health < 0) {
         bossLevelUp()
     }
@@ -52,7 +53,8 @@ function attackBoss() {
 
 function bossLevelUp() {
     boss.level++
-    boss.hp = boss.level * 100
+    boss.maxHealth = boss.level * 100
+    boss.health = boss.maxHealth
     hero.credit += boss.level * 100
 
 }
