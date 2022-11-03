@@ -16,6 +16,7 @@ const companions = [
         value: 5,
         health: 150,
         cost: 100,
+        squadUp: false,
         img: 'Wolverine/Wolverine 01.png'
     },
 
@@ -25,6 +26,7 @@ const companions = [
         value: 15,
         health: 100,
         cost: 200,
+        squadUp: false,
         img: "img/Spider-Man 01.png"
 
     },
@@ -34,6 +36,7 @@ const companions = [
         value: 10,
         health: 100,
         cost: 500,
+        squadUp: false,
         img: "img/Deadpool 00.png"
 
     }
@@ -108,5 +111,11 @@ function buy(name) {
         return
     }
     hero.credit -= companion.cost
+    companion.squadUp = true
     update()
+}
+
+
+function companionsActions() {
+    let companion = companions.find(f => f.name)
 }
