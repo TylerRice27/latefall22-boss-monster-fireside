@@ -16,17 +16,17 @@ const companions = [
         health: 150,
         cost: 100,
         power: 0,
-        img: 'imgs/Wolverine 00.png'
+        img: 'https://media2.giphy.com/media/HTy0GcFDvOVi0/giphy.gif'
     },
 
     {
-        name: 'Symbiote Spider-man',
+        name: 'Iron-man',
         type: 'dmg',
         value: 15,
         health: 100,
         cost: 200,
         power: 0,
-        img: "imgs/Spider-Man 01.png"
+        img: "https://media1.giphy.com/media/7EiixpldfkXni/giphy.gif?cid=ecf05e470ymdtyll84dy0v9d66xiq0et3sqlzux9sf9ifv9c&rid=giphy.gif&ct=s"
 
     },
     {
@@ -36,7 +36,7 @@ const companions = [
         health: 100,
         cost: 500,
         power: 0,
-        img: "imgs/Deadpool 00.png"
+        img: "https://media3.giphy.com/media/TAbghspb8GP4I/200w.webp?cid=ecf05e47iusv43aubq8g15qe54v33cvtt327gqjf7nbaaouo&rid=200w.webp&ct=s"
 
     }
 ]
@@ -114,9 +114,9 @@ function drawCompanions(companion) {
 
 }
 function buy(name) {
-    let companion = companions.find(f => f.power == name)
+    let companion = companions.find(f => f.name == name)
     console.log(companion);
-    // @ts-ignore
+
     if (hero.credit < companion.cost) {
         window.alert("Go farm some more credits")
         return
@@ -144,7 +144,7 @@ function healHero(val) {
 function companionsActions() {
     companions.forEach(c => {
 
-        console.log(c);
+        // console.log(c);
         if (c.health <= 0) {
             c.health = 0
             return
@@ -157,6 +157,7 @@ function companionsActions() {
         }
     }
 
+    )
 }
 
 
