@@ -72,6 +72,9 @@ function attackBoss() {
     if (boss.health < 0) {
         bossLevelUp()
     }
+
+    // let audio = new Audio('imgs/Spider-Man web shoot sound effect.mp3')
+    // audio.play()
     update()
 
 }
