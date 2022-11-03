@@ -49,9 +49,13 @@ const companions = [
 
 
 function update() {
+    // @ts-ignore
     document.getElementById('boss-hp').innerText = boss.health
+    // @ts-ignore
     document.getElementById('hero-hp').innerText = hero.health
+    // @ts-ignore
     document.getElementById('boss-lvl').innerText = boss.level
+    // @ts-ignore
     document.getElementById('credits').innerText = hero.credit
 
 
@@ -124,6 +128,7 @@ function buy(name) {
     let companion = companions.find(f => f.name == name)
     console.log(companion);
 
+    // @ts-ignore
     if (hero.credit < companion.cost) {
         window.alert("Go farm some more credits")
         return
