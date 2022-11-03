@@ -57,9 +57,6 @@ function update() {
     document.getElementById('boss-lvl').innerText = boss.level
     // @ts-ignore
     document.getElementById('credits').innerText = hero.credit
-
-
-
 }
 
 
@@ -124,6 +121,7 @@ function drawCompanions(companion) {
     document.getElementById(`${companion.name}`).innerHTML = template
 
 }
+
 function buy(name) {
     let companion = companions.find(f => f.name == name)
     console.log(companion);
