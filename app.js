@@ -133,6 +133,9 @@ function buy(name) {
 
 function damageBoss(val) {
     boss.health -= val
+    if (boss.health < 0) {
+        bossLevelUp()
+    }
     update()
 }
 
@@ -159,6 +162,7 @@ function companionsActions() {
     }
 
     )
+
     update()
 }
 
