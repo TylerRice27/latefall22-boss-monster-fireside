@@ -2,9 +2,9 @@
     background-image: url('/imgs/mvc-stage7.gif');
     background-position: center;
     background-size: cover;
-    height: 100vh;
-    background-repeat: no-repeat;
+    background-repeat: repeat
 }
+
 
 .bad-img {
     width: 400px;
