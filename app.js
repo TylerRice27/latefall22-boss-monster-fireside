@@ -17,7 +17,7 @@ const companions = [
         health: 150,
         cost: 100,
         squadUp: false,
-        img: 'Wolverine/Wolverine 01.png'
+        img: 'imgs/Wolverine 00.png'
     },
 
     {
@@ -27,7 +27,7 @@ const companions = [
         health: 100,
         cost: 200,
         squadUp: false,
-        img: "img/Spider-Man 01.png"
+        img: "imgs/Spider-Man 01.png"
 
     },
     {
@@ -37,11 +37,17 @@ const companions = [
         health: 100,
         cost: 500,
         squadUp: false,
-        img: "img/Deadpool 00.png"
+        img: "imgs/Deadpool 00.png"
 
     }
 ]
 
+const boss = {
+    health: 100,
+    maxHealth: 100,
+    damage: 5,
+    level: 1
+}
 
 function update() {
     document.getElementById('boss-hp').innerText = boss.health
@@ -53,12 +59,6 @@ function update() {
 
 }
 
-const boss = {
-    health: 100,
-    maxHealth: 100,
-    damage: 5,
-    level: 1
-}
 
 function attackBoss() {
     if (hero.health <= 0) {
@@ -103,6 +103,18 @@ setInterval(bossAttack, 2000)
 // Start that is need for the lecture
 // I put my companions up to by my hero
 
+function drawCompanions(companion) {
+
+    let template = ` <div class="col-md-3">
+                <h3 class="text-light text-center text-shadow">HP:${companion.health}</span></h3>
+                <img class="hero-img " src="${companion.img}" alt="">
+
+            </div>`
+
+    document.getElementById(`${companion.name}`).innerHTML = template
+
+}
+
 function buy(name) {
     let companion = companions.find(f => f.name == name)
     console.log(companion);
@@ -112,6 +124,8 @@ function buy(name) {
     }
     hero.credit -= companion.cost
     companion.squadUp = true
+
+    drawCompanions(companion)
     update()
 }
 
@@ -119,3 +133,5 @@ function buy(name) {
 function companionsActions() {
     let companion = companions.find(f => f.name)
 }
+
+setInterval(companionsActions, 3000)
