@@ -1,59 +1,58 @@
 const hero =
 {
-  name: 'Spider-man',
-  type: 'Rouge',
-  damage: 10,
-  health: 100,
-  credit: 0,
-  // img: 'Spider-Man/Spider-Man 00.png'
+    name: 'Spider-man',
+    type: 'Rouge',
+    damage: 10,
+    health: 100,
+    credit: 0,
 }
 
 const companions = [
 
-  {
-    name: 'Wolverine',
-    type: 'Tank',
-    value: 5,
-    health: 150,
-    cost: 100,
-    squadUp: false,
-    img: 'https://media2.giphy.com/media/HTy0GcFDvOVi0/giphy.gif'
-  },
+    {
+        name: 'Wolverine',
+        type: 'dmg',
+        value: 5,
+        health: 150,
+        cost: 100,
+        power: 0,
+        img: 'imgs/Wolverine 00.png'
+    },
 
-  {
-    name: 'Iron-man',
-    type: 'Evil Rouge',
-    value: 15,
-    health: 100,
-    cost: 200,
-    squadUp: false,
-    img: "https://media1.giphy.com/media/7EiixpldfkXni/giphy.gif?cid=ecf05e470ymdtyll84dy0v9d66xiq0et3sqlzux9sf9ifv9c&rid=giphy.gif&ct=s"
+    {
+        name: 'Symbiote Spider-man',
+        type: 'dmg',
+        value: 15,
+        health: 100,
+        cost: 200,
+        power: 0,
+        img: "imgs/Spider-Man 01.png"
 
-  },
-  {
-    name: 'Deadpool',
-    type: 'Support',
-    value: 10,
-    health: 100,
-    cost: 500,
-    squadUp: false,
-    img: "https://media3.giphy.com/media/TAbghspb8GP4I/200w.webp?cid=ecf05e47iusv43aubq8g15qe54v33cvtt327gqjf7nbaaouo&rid=200w.webp&ct=s"
+    },
+    {
+        name: 'Deadpool',
+        type: 'dmg',
+        value: 10,
+        health: 100,
+        cost: 500,
+        power: 0,
+        img: "imgs/Deadpool 00.png"
 
-  }
+    }
 ]
 
 const boss = {
-  health: 100,
-  maxHealth: 100,
-  damage: 5,
-  level: 1
+    health: 100,
+    maxHealth: 100,
+    damage: 5,
+    level: 1
 }
 
 function update() {
-  document.getElementById('boss-hp').innerText = boss.health
-  document.getElementById('hero-hp').innerText = hero.health
-  document.getElementById('boss-lvl').innerText = boss.level
-  document.getElementById('credits').innerText = hero.credit
+    document.getElementById('boss-hp').innerText = boss.health
+    document.getElementById('hero-hp').innerText = hero.health
+    document.getElementById('boss-lvl').innerText = boss.level
+    document.getElementById('credits').innerText = hero.credit
 
 
 
@@ -61,38 +60,38 @@ function update() {
 
 
 function attackBoss() {
-  if (hero.health <= 0) {
-    window.alert("You dead bro")
-    return
-  }
-  // NOTE This doesn't work because the = sign
-  // is assign the left hand thing to the right hand thing
-  // hero.damage -= boss.health
-  boss.health -= hero.damage
-  hero.credit += boss.level
-  if (boss.health < 0) {
-    bossLevelUp()
-  }
-  update()
+    if (hero.health <= 0) {
+        window.alert("You dead bro")
+        return
+    }
+    // NOTE This doesn't work because the = sign
+    // is assign the left hand thing to the right hand thing
+    // hero.damage -= boss.health
+    boss.health -= hero.damage
+    hero.credit += boss.level
+    if (boss.health < 0) {
+        bossLevelUp()
+    }
+    update()
 
 }
 
 function bossLevelUp() {
-  boss.level++
-  boss.maxHealth = boss.level * 100
-  boss.health = boss.maxHealth
-  hero.credit += boss.level * 100
+    boss.level++
+    boss.maxHealth = boss.level * 100
+    boss.health = boss.maxHealth
+    hero.credit += boss.level * 100
 
 }
 
 function bossAttack() {
-  boss.damage = boss.damage * boss.level
-  hero.health -= boss.level
-  if (hero.health <= 0) {
-    hero.health = 0
+    boss.damage = boss.damage * boss.level
+    hero.health -= boss.level
+    if (hero.health <= 0) {
+        hero.health = 0
 
-  }
-  update()
+    }
+    update()
 }
 
 
@@ -105,33 +104,61 @@ setInterval(bossAttack, 2000)
 
 function drawCompanions(companion) {
 
-  let template = ` <div class="d-flex flex-column align-items-center">
+    let template = ` <div class="d-flex flex-column align-items-center">
                 <h3 class="text-light text-center text-shadow">HP:${companion.health}</span></h3>
                 <img class="comp-img " src="${companion.img}" alt="">
 
             </div>`
 
-  document.getElementById(`${companion.name}`).innerHTML = template
+    document.getElementById(`${companion.name}`).innerHTML = template
 
 }
-
 function buy(name) {
-  let companion = companions.find(f => f.name == name)
-  console.log(companion);
-  if (hero.credit < companion.cost) {
-    window.alert("Go farm some more credits")
-    return
-  }
-  hero.credit -= companion.cost
-  companion.squadUp = true
+    let companion = companions.find(f => f.power == name)
+    console.log(companion);
+    // @ts-ignore
+    if (hero.credit < companion.cost) {
+        window.alert("Go farm some more credits")
+        return
+    }
+    // @ts-ignore
+    hero.credit -= companion.cost
+    // @ts-ignore
+    companion.power++
 
-  drawCompanions(companion)
-  update()
+    drawCompanions(companion)
+    companionsActions()
+    update()
 }
 
+function damageBoss(val) {
+    boss.health -= val
+    update()
+}
+
+function healHero(val) {
+    hero.health += val
+    update()
+}
 
 function companionsActions() {
-  let companion = companions.find(f => f.name)
+    companions.forEach(c => {
+
+        console.log(c);
+        if (c.health <= 0) {
+            c.health = 0
+            return
+        }
+        if (c.type == "dmg") {
+            c.value = c.value * c.power
+            damageBoss(c.value)
+        } else {
+            healHero(c.value)
+        }
+    }
+
 }
+
+
 
 setInterval(companionsActions, 3000)
