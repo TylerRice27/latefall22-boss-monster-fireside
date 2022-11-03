@@ -160,7 +160,7 @@ function healHero(val) {
 function companionsActions() {
     companions.forEach(c => {
 
-        console.log(c);
+        // console.log(c);
         if (c.health <= 0) {
             c.health = 0
             return
